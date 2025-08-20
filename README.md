@@ -1048,3 +1048,15 @@ public class Main {
 
 **Yüksek lag** = Consumer mesajları geriden takip ediyor (performans/bottleneck göstergesi).
 
+# 20. Monolith ile Microservice arasındaki farklar nelerdir?
+| Kriter                      | **Monolitik Mimari**                                            | **Mikroservis Mimari**                                                                       |
+| --------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **Deploy**                  | Küçük bir değişiklikte bile tüm uygulama yeniden deploy edilir. | Sadece değişen servis yeniden deploy edilir.                                                 |
+| **Teknoloji Esnekliği**     | Genelde tek bir teknoloji/dil kullanılır.                       | Servisler farklı diller, framework’ler, veritabanlarıyla yazılabilir.                        |
+| **Bağımlılık**              | Katmanlar arası sıkı bağlılık vardır.                           | Servisler gevşek bağlıdır, API’ler aracılığıyla haberleşir.                                  |
+| **Hata Yönetimi**           | Bir modüldeki hata tüm sistemi etkileyebilir.                   | Hata yalnızca ilgili servisi etkiler.                                                        |
+| **Test & Debug**            | Daha kolaydır çünkü her şey tek yerde.                          | Daha zordur; servisler arası iletişim karmaşık olabilir.                                     |
+| **Operasyonel Karmaşıklık** | Yönetimi ve izlenmesi kolaydır.                                 | Çok sayıda servis olduğundan monitoring, logging, service discovery gibi ek altyapı gerekir. |
+| **Kullanım Alanı**          | Küçük/orta ölçekli projeler için uygundur.                      | Büyük, sürekli büyüyen ve farklı ekiplerin geliştirdiği projeler için uygundur.              |
+
+
