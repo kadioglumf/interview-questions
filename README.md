@@ -1092,8 +1092,80 @@ public class Main {
 4. **Durability** - İşlem başarılı olduktan sonra, sistem çökse bile işlem kalıcı olmalı.
 
 
+# 23. Spring'te Scope Türleri
+
+| Scope           | Yaşam süresi                               | Kullanım Alanı          |
+| --------------- | ------------------------------------------ | ----------------------- |
+| **singleton**   | Tüm application context boyunca 1 instance | Genel servisler         |
+| **prototype**   | Her kullanımda yeni instance               | State tutan objeler     |
+| **request**     | Her HTTP request’te yeni instance          | Web request bazlı bean  |
+| **session**     | Her HTTP session için 1 instance           | Kullanıcı bazlı veriler |
+| **application** | Tüm ServletContext için 1 instance         | Global app verileri     |
+| **websocket**   | Her WebSocket bağlantısı için 1 instance   | WebSocket oturumları    |
 
 
+# 24. Java'da Polimorfizm (Polymorphism)
+
+Bir nesnenin birden fazla formda davranabilmesini sağlar.  
+Java’da polimorfizm **3 ana şekilde** uygulanır:
+
+---
+
+## Compile-time Polymorphism (Statik / Erken Bağlama)
+
+Derleme anında hangi metodun çalışacağı **parametre imzasına göre** belirlenir.  
+Java’da **method overloading** ile sağlanır.
+
+###  Örnek
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+```
+
+## Runtime Polymorphism
+Java’da method overriding ile sağlanır.
+**@Override** anotasyonu kullanılır.
 
 
-.
+## Parametric Polymorphism
+Java’da Generics ile uygulanır.
+
+###  Örnek
+```java
+class Box<T> {
+    private T value;
+
+    public void set(T value) {
+        this.value = value;
+    }
+
+    public T get() {
+        return value;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Box<Integer> intBox = new Box<>();
+        intBox.set(100);
+        System.out.println(intBox.get());  // 100
+
+        Box<String> strBox = new Box<>();
+        strBox.set("Hello");
+        System.out.println(strBox.get());  // Hello
+    }
+}
+```
+
+
