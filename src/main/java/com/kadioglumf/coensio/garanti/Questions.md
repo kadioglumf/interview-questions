@@ -21,6 +21,7 @@
 ```
 Cevap : O(n)
 
+
 3. Which one of the following is not true about CI/CD (Continuous integration and Continuous delivery)?
 
     - CI/CD ensures that fault isolations are faster to detect and easier to implement
@@ -29,6 +30,7 @@ Cevap : O(n)
     - ✅ Cevap: `CI/CD increases the Mean Time To Resolution (MTTR)`
     - CI/CD ensures that release cycles are shorter and targeted
 
+   
 4. Which one of the following is wrong about Horizontal Scaling vs Vertical Scaling?
 
     - Horizontal scaling means scaling by adding more machines to your pool of resources
@@ -36,6 +38,7 @@ Cevap : O(n)
     - Single point of hardware failure which can cause bigger outages is more likely to happen in Vertical Scaling
     - ✅ Cevap: `Vertical scaling requires less downtime while extending the service capabilities`
     - Horizontal scaling requires a load-balancer to distribute load among the servers
+
 
 5. Major benefits of using a Source Code Version Control System like Git, SVN, etc.:
    - **Collaboration** – Multiple developers can work on the same codebase simultaneously without overwriting each other’s changes.
@@ -45,8 +48,10 @@ Cevap : O(n)
    - **Traceability** – Changes are linked to commits, issues, or features, providing clear traceability and accountability.
    - **Continuous integration support** – Works seamlessly with CI/CD pipelines to automate testing, building, and deployment.
 
+
 6. Could you explain what atomicity property of a database means?
    - Atomicity, ACID özelliklerinden biridir ve bir veritabanı işlemindeki tüm adımların ya tamamen gerçekleşmesi ya da hiç gerçekleşmemesi gerektiğini ifade eder. Eğer işlem sırasında bir hata olursa, yapılan tüm değişiklikler geri alınır (rollback) ve veritabanı eski tutarlı haline döner.
+
 
 7. Defining public, protected and private methods / variables for objects, describes which principle of Object-Oriented Programming?
 
@@ -55,6 +60,7 @@ Cevap : O(n)
    - Polymorphism
    - ✅ Cevap: `Encapsulation`
    - All of them
+
 
 8. Which one of the following is wrong for differences between Agile Methodology vs Waterfall Methodology?
    - Agile is an incremental and iterative approach; Waterfall is a linear and sequential approach
@@ -66,6 +72,7 @@ Cevap : O(n)
    - Testing is performed concurrently with development in Agile; testing phase comes after the build phase in Waterfall
 
    - In Waterfall software development is completed as one single project whereas Agile can be considered as a set of many different projects
+
 
 9. Which one of the following best describes the Adapter Pattern?
 
@@ -79,17 +86,17 @@ Cevap : O(n)
 
    - Adds a new functionality to an existing object without altering its structure → (Decorator Pattern)
 
+
 10. Which one of the following is not an actual benefit of writing Unit Tests during your development?
-
-   -Improves code coverage during automated tests
-
-   - Improves the code quality
-
-   - Debugging process can be simplified 
-
-   - Enables to find bugs easily
-
-   - ✅ Cevap: `Decreases the run time of your functions`
+      - Improves code coverage during automated tests
+      
+      - Improves the code quality
+      
+      - Debugging process can be simplified 
+      
+      - Enables to find bugs easily
+      
+      - ✅ Cevap: `Decreases the run time of your functions`
 
 
 

@@ -1060,3 +1060,40 @@ public class Main {
 | **Kullanım Alanı**          | Küçük/orta ölçekli projeler için uygundur.                      | Büyük, sürekli büyüyen ve farklı ekiplerin geliştirdiği projeler için uygundur.              |
 
 
+# 21. Stack ve Heap
+
+## Stack
+- Küçük ve hızlı bir bellek alanıdır.
+- Metod çağrıları sırasında kullanılır.
+- Yerel değişkenler ve metot çağrı bilgileri burada tutulur.
+- Bellek yönetimi otomatik yapılır (metot bittiğinde stack’teki veriler silinir).
+- LIFO (Last In, First Out) mantığıyla çalışır.
+- Primitive tipler (int, double, boolean vb.) veya nesne referansları stack’te saklanır.
+
+## Heap
+- Büyük ve yavaş bir bellek alanıdır.
+- Nesneler (Objects) heap’te oluşturulur.
+- Heap’teki nesnelere referanslar aracılığıyla ulaşılır (referans stack’te, nesne heap’te durur).
+- Garbage Collector (Çöp Toplayıcı) kullanılmayan nesneleri temizler.
+- Thread’ler arasında paylaşımlıdır.
+
+## ✅ Özet:
+
+- Stack: Hızlı, küçük, geçici (metot çağrısı bitince temizlenir).
+- Heap: Büyük, nispeten yavaş, nesneler burada kalır, GC yönetir.
+
+# 22. ACID
+## Tanım:
+- Veritabanı işlemlerinin güvenilirliğini garanti eden 4 özellik.
+
+1. **Atomicity** - Bir işlem ya tamamen yapılır ya da hiç yapılmaz.
+2. **Consistency** - Transaction öncesi ve sonrası, veritabanı tutarlı durumda olmalı.
+3. **Isolation** - Aynı anda çalışan transaction’lar birbirini etkilememeli.
+4. **Durability** - İşlem başarılı olduktan sonra, sistem çökse bile işlem kalıcı olmalı.
+
+
+
+
+
+
+.
