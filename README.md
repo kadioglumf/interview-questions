@@ -1169,3 +1169,34 @@ public class Main {
 ```
 
 
+# 25. Kafka vs RabbitMq
+| Özellik / Kriter              | **Apache Kafka**                                                                                                              | **RabbitMQ**                                                                                                                           |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Mesaj Saklama**             | Mesajlar log’larda kalıcıdır (retention süresi boyunca diskte tutulur).                                                       | Mesajlar kuyrukta tüketilene kadar tutulur, varsayılan kalıcılık sınırlı.                                                              |
+| **Tüketim Modeli**            | Consumer Group ile mesajlar birden fazla tüketiciye **paralel** dağıtılır. Aynı grup içindeki tüketiciler iş yükünü paylaşır. | Mesaj genellikle tek tüketiciye iletilir. Fanout gibi exchange tipleriyle broadcast yapılabilir ama log benzeri tekrar tüketim yoktur. |
+| **Performans**                | Çok yüksek throughput (milyonlarca mesaj/sn). Büyük veri akışı ve event streaming için uygun.                                 | Daha düşük throughput. Düşük gecikme (low latency) gerektiren işler için optimize.                                                     |
+| **Kullanım Senaryosu**        | Event streaming, log toplama, gerçek zamanlı analiz, mikroservisler arası event-driven mimari.                                | Görev dağıtımı (task queue), klasik mesajlaşma, RPC, kısa ömürlü mesaj senaryoları.                                                    |
+| **Saklama Süresi**            | Belirlenen retention süresi boyunca saklanır, tüketilse bile silinmez (örneğin 7 gün).                                        | Tüketildikten sonra kuyruktan silinir.                                                                                                 |
+| **Sıralama (Ordering)**       | Partition bazında sıralama garanti edilir. Global sıralama yoktur.                                                            | Queue bazında sıralama garanti edilir.                                                                                                 |
+| **Dağıtık Ölçeklenebilirlik** | Yüksek seviyede dağıtık çalışır, yatayda kolayca ölçeklenir.                                                                  | Ölçekleme daha sınırlıdır, genellikle vertical scaling ile yönetilir.                                                                  |
+| **Yönetim & İzleme**          | Zookeeper/Kraft ile cluster yönetimi gerekir. Ekstra monitoring araçları (Kafka Manager, Prometheus, Grafana).                | Yönetim konsolu (UI) dahili olarak gelir, monitoring kolaydır.                                                                         |
+| **Protokol**                  | Özel Kafka protokolü (TCP tabanlı).                                                                                           | AMQP protokolü (genel, esnek, farklı dillerde desteklenir).                                                                            |
+| **Mesaj Yeniden Okuma**       | İstenen offset’ten başlayarak eski mesajları tekrar okuyabilirsin.                                                            | Tüketilmiş mesaj tekrar okunamaz (ancak dead-letter veya requeue mekanizmasıyla tekrar gönderilebilir).                                |
+
+
+# 26. Yorum soruları
+## 1. Bir ekranda veri listelenecek. Tabloda çok fazla kayıt olabilir. servisin cevabı hızlı dönmesi için ne yaparsın?
+### Cevap:
+        - index koyulabilir
+        - pagination eklenebilir
+        - partion table yapısu kurulabilir
+        - cache eklenebilir
+## 2. Bir nesne initialize edildikten sonra hemen bir methodum çalışssın istiyorum. bunu nasıl yaparım?
+### Cevap:
+        - @PostConstruct annotation
+## 3. Bir nesne destroy edilirken bir methodum çalışsın istiyorum. bunu nasıl yaparım?
+### Cevap:
+        - @PreDestroy annotation
+## 4. Bir method var. bu method @Transactional ile işaretli. bu methodun içinde ilk satırda db save işlemi, ikinci satırda dış rest servise get isteği ama herhangi bir veri getirmiyor, üçüncü satırda ise yine bir db save işlemi var. sence bu tasarımda bir problem var mı ?
+
+
